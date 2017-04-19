@@ -118,7 +118,7 @@ services:
       #    restart: always
 
   webmail:
-    image: webbasedsol/rainloop:0.1.0
+    image: webbasedsol/rainloop
     mem_limit: 256m
     links:
       - mail:mail.kemifolarin.net
