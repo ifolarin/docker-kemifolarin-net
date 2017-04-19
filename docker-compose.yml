@@ -74,7 +74,7 @@ services:
     #container_name: openldap
     environment:
       LDAP_LOG_LEVEL: "256"
-      LDAP_ORGANISATION: "Example Inc."
+      LDAP_ORGANISATION: "Kemi Folarin Consulting"
       LDAP_DOMAIN: "kemifolarin.net"
       LDAP_BASE_DN: ""
       LDAP_ADMIN_PASSWORD: "admin"
