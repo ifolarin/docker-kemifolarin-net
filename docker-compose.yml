@@ -69,7 +69,7 @@ services:
     restart: always 
 
   openldap:
-    image: webbasedsol/openldap:0.3.4
+    image: webbasedsol/openldap
     hostname: "ldap"
     #container_name: openldap
     environment:
