@@ -12,6 +12,7 @@ services:
     links:
     - webmail
     - phpldapadmin:ldapadmin
+    restart: always 
 
   mail:
     image: tvial/docker-mailserver:2.1
@@ -130,6 +131,7 @@ services:
       - APACHE_SERVER_NAME=webmail.kemifolarin.net
       - PHP_MAX_POST_SIZE=105M
       - PHP_MAX_UPLOAD_SIZE=100M
+    restart: always 
 
   phpldapadmin:
     image: webbasedsol/phpldapadmin
@@ -142,6 +144,7 @@ services:
       - "8080:80"
     depends_on:
       - openldap
+    restart: always 
 
   lssp:
     image: dtwardow/ldap-self-service-password
@@ -164,6 +167,7 @@ services:
       LDAP_PORT: 389 #Default
       LDAP_USER: cn=admin,dc=kemifolarin,dc=net
       LDAP_PASS: admin
+    restart: always 
 
   openldap-backup:
     image: osixia/openldap-backup:1.1.8
@@ -174,12 +178,13 @@ services:
       - LDAP_BACKUP_DATA_CRON_EXP=30 3 * * * *
     volumes:
       - ldap-backup:/data/backup
+    restart: always 
         
   s3-backup:
     image: peterrus/s3-cron-backup
     environment:
-      - AWS_ACCESS_KEY_ID=AKIAICKHFGYSOBEHRD5Q
-      - AWS_SECRET_ACCESS_KEY=tw0hLme7kb2tnrjJslxNfL4SJHkkRthwyBLM0UbH
+      - AWS_ACCESS_KEY_ID=
+      - AWS_SECRET_ACCESS_KEY=
       - S3_BUCKET_URL=s3://wbs.example.org/
       - AWS_DEFAULT_REGION=us-east-1
       - CRON_SCHEDULE=0 4 * * * # run every hour
